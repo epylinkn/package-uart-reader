@@ -1,0 +1,42 @@
+{
+    "name": "UART Reader Demo",
+    "permissions": {
+        "gpio": "yes",
+        "serial": "yes"
+    },
+    "options": [{
+        "title": "Configuration",
+        "type": "section"
+    }, {
+        "title": "PIN",
+        "ui_width": 4,
+        "name": "pin",
+        "type": "integer",
+        "default": 18
+    }, 
+    
+    {
+        "title": "What to display",
+        "type": "section"
+    }, {
+        "title": "Playlist",
+        "name": "playlist",
+        "type": "list",
+        "itemname": "Item",
+        "items": [{
+            "title": "Asset",
+            "ui_width": 8,
+            "name": "file",
+            "type": "resource",
+            "valid": ["video"],
+            "default": "example.mp4"
+        }, {
+            "title": "Play time (in seconds)",
+            "ui_width": 4,
+            "name": "duration",
+            "type": "duration",
+            "hint": "How long should this item be displayed on screen. For videos, use their duration",
+            "default": 5
+        }]
+    }]
+}

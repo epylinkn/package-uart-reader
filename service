@@ -1,0 +1,29 @@
+#!/usr/bin/python
+from hosted import device, node, config
+from time import sleep
+import serial
+
+config.restart_on_update()
+
+ser = serial.Serial ("/dev/ttyS0", 115200, timeout=0.5)
+ser.read(ser.inWaiting())                  # clear buffer
+while True:
+    received_data = ser.readline()        # read serial (Serial.println(<0-1024>))
+    if received_data == '':
+        continue
+
+    data = received_data.split(",")
+
+    try:
+        if data[0] == 'state':
+            node.send('/state:%d' % int(data[1]))      # distance measurement!
+        elif data[0] == 'configure':
+            node.send('/configure:%d' % int(data[1]))  # 0 or 1 flag
+        elif data[0] == 'limit':
+            node.send('/limit:%d' % int(data[1]))      # set threshold
+        else:
+            pass # unrecognized message; no-op
+    except:
+        continue
+
+    sleep(0.03)

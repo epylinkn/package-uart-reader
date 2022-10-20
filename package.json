@@ -1,0 +1,7 @@
+{
+    "name": "UART Reader Demo",
+    "author": "@leaf.cruncher",
+    "desc": "Demonstrate reading sensor information via Serial",
+    "repository": "https://github.com/epylinkn/package-uart-reader",
+    "platforms": ["pi/epoch-1", "pi/epoch-2"]
+}
