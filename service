@@ -19,10 +19,12 @@ while True:
             node.send('/state:%d' % int(data[1]))      # distance measurement!
         elif data[0] == 'configure':
             node.send('/configure:%d' % int(data[1]))  # 0 or 1 flag
-        elif data[0] == 'limit':
-            node.send('/limit:%d' % int(data[1]))      # set threshold
         else:
             pass # unrecognized message; no-op
+
+        # 2022/10/24 - Hardcode threshold from onsite configuration
+        # elif data[0] == 'limit':
+        #     node.send('/limit:%d' % int(data[1]))      # set threshold
     except:
         continue
 

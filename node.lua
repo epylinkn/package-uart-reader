@@ -4,7 +4,7 @@ gl.setup(NATIVE_WIDTH, NATIVE_HEIGHT)
 
 local isConfiguring = false
 local distance = 100
-local threshold = 100
+local threshold = 22
 
 local active = false
 local video_one
@@ -19,9 +19,6 @@ util.data_mapper{
     end,
     configure = function(configure)
         isConfiguring = configure == "1"
-    end,
-    limit = function(limit)
-        threshold = tonumber(limit)
     end,
 }
 
